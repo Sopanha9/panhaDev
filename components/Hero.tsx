@@ -3,7 +3,15 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ExternalLink, MapPin, ShieldCheck, Database, Server, Code } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  MapPin,
+  ShieldCheck,
+  Database,
+  Server,
+  Code,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { TypewriterEffect } from "./TypewriterEffect";
 import me from "./img/me.png"; // reusing the profile image
@@ -14,12 +22,21 @@ const Hero = () => {
       {/* Noise Overlay */}
       <div className="noise-overlay" />
 
-      {/* Background Gradients (Subtle Aura) */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--color-electric-blue)]/10 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[120px] -z-10" />
+      {/* Background Gradients (Subtle Aura) with Animation */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--color-electric-blue)]/10 rounded-full blur-[120px] -z-10"
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[120px] -z-10"
+      />
 
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20 z-10">
-
         {/* Left Column (60%) */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -43,7 +60,10 @@ const Hero = () => {
                     { text: "Backend Developer.", className: "font-mono" },
                     { text: "System Architect.", className: "font-mono" },
                     { text: "Secure Infrastructure.", className: "font-mono" },
-                    { text: "សួស្ដី, ខ្ញុំឈ្មោះ បញ្ញា", className: "font-khmer" }
+                    {
+                      text: "សួស្ដី, ខ្ញុំឈ្មោះ បញ្ញា",
+                      className: "font-khmer",
+                    },
                   ]}
                   className="block text-2xl md:text-3xl font-medium text-[var(--color-electric-blue)]"
                   cursorClassName="bg-[var(--color-electric-blue)] h-8 md:h-10"
@@ -55,37 +75,83 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
-              A Year 2 University student with a deep passion for System Architecture and Backend Development. I thrive on building scalable solutions and constantly adapting to new technologies.
+              A Year 2 University student with a deep passion for System
+              Architecture and Backend Development. I thrive on building
+              scalable solutions and constantly adapting to new technologies.
             </p>
           </div>
 
           {/* Tech Stack Strip */}
-          <div className="w-full py-4 border-y border-white/5 flex flex-wrap gap-8 items-center text-gray-500">
-            <span className="text-xs uppercase tracking-widest font-semibold opacity-50">Tech Stack</span>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="w-full py-4 border-y border-white/5 flex flex-wrap gap-8 items-center text-gray-500"
+          >
+            <span className="text-xs uppercase tracking-widest font-semibold opacity-50">
+              Tech Stack
+            </span>
 
             {/* Icons (Lucide proxies for simplicity as no brand icons available) */}
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2 group cursor-help">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="flex items-center gap-2 group cursor-help"
+              >
                 <Code className="w-5 h-5 group-hover:text-[var(--color-electric-blue)] transition-colors" />
-                <span className="text-sm font-mono group-hover:text-white transition-colors">Go</span>
-              </div>
-              <div className="flex items-center gap-2 group cursor-help">
+                <span className="text-sm font-mono group-hover:text-white transition-colors">
+                  JavaScript
+                </span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="flex items-center gap-2 group cursor-help"
+              >
                 <Server className="w-5 h-5 group-hover:text-green-500 transition-colors" />
-                <span className="text-sm font-mono group-hover:text-white transition-colors">Node.js</span>
-              </div>
-              <div className="flex items-center gap-2 group cursor-help">
+                <span className="text-sm font-mono group-hover:text-white transition-colors">
+                  Bun/Node.js
+                </span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="flex items-center gap-2 group cursor-help"
+              >
                 <ShieldCheck className="w-5 h-5 group-hover:text-purple-500 transition-colors" />
-                <span className="text-sm font-mono group-hover:text-white transition-colors">Kotlin</span>
-              </div>
-              <div className="flex items-center gap-2 group cursor-help">
+                <span className="text-sm font-mono group-hover:text-white transition-colors">
+                  Kotlin
+                </span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 1.0 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="flex items-center gap-2 group cursor-help"
+              >
                 <Database className="w-5 h-5 group-hover:text-orange-500 transition-colors" />
-                <span className="text-sm font-mono group-hover:text-white transition-colors">Oracle/SQL</span>
-              </div>
+                <span className="text-sm font-mono group-hover:text-white transition-colors">
+                  Oracle/SQL
+                </span>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 pt-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap gap-4 pt-2"
+          >
             <Link
               href="#projects"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-electric-blue)] text-black font-bold rounded-lg hover:shadow-[0_0_30px_rgba(0,255,148,0.3)] transition-all duration-300 transform hover:-translate-y-1"
@@ -101,7 +167,7 @@ const Hero = () => {
               Read My Blog
               <ExternalLink className="w-4 h-4" />
             </Link>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Right Column (40%) - Professional Portrait */}
@@ -126,16 +192,42 @@ const Hero = () => {
 
             {/* Overlay details */}
             <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
-              <p className="text-[var(--color-electric-blue)] font-mono text-sm mb-1">Status: Active</p>
-              <p className="text-white text-xs opacity-60">Open for new opportunities</p>
+              <p className="text-[var(--color-electric-blue)] font-mono text-sm mb-1">
+                Status: Active
+              </p>
+              <p className="text-white text-xs opacity-60">
+                Open for new opportunities
+              </p>
             </div>
           </div>
 
           {/* Decorative Elements */}
-          <div className="absolute -top-10 -right-10 w-32 h-32 border border-[var(--color-electric-blue)]/20 rounded-full opacity-50 animate-pulse" />
-          <div className="absolute -bottom-5 -left-5 w-24 h-24 border border-purple-500/20 rounded-full opacity-50" />
+          <motion.div
+            animate={{
+              y: [0, -15, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -top-10 -right-10 w-32 h-32 border border-[var(--color-electric-blue)]/20 rounded-full opacity-50 animate-pulse"
+          />
+          <motion.div
+            animate={{
+              y: [0, 10, 0],
+              scale: [1, 0.9, 1],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
+            className="absolute -bottom-5 -left-5 w-24 h-24 border border-purple-500/20 rounded-full opacity-50"
+          />
         </motion.div>
-
       </div>
     </section>
   );

@@ -20,12 +20,16 @@ const Navbar = () => {
 
   useEffect(() => {
     const controlNavbar = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         const currentScrollY = window.scrollY;
 
         // Hide if scrolling down AND we've scrolled past a threshold
         // AND the mobile menu is NOT open
-        if (currentScrollY > lastScrollY.current && currentScrollY > 50 && !isMobileMenuOpen) {
+        if (
+          currentScrollY > lastScrollY.current &&
+          currentScrollY > 50 &&
+          !isMobileMenuOpen
+        ) {
           setIsVisible(false);
         } else {
           setIsVisible(true);
@@ -35,10 +39,10 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', controlNavbar);
+    window.addEventListener("scroll", controlNavbar);
 
     return () => {
-      window.removeEventListener('scroll', controlNavbar);
+      window.removeEventListener("scroll", controlNavbar);
     };
   }, [isMobileMenuOpen]);
 
@@ -62,14 +66,13 @@ const Navbar = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{
           y: isVisible ? 0 : -100,
-          opacity: isVisible ? 1 : 0
+          opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
         className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] md:w-[80%] z-50 flex flex-col gap-2"
       >
         {/* Main Navbar Bar */}
         <div className="flex items-center justify-between px-6 py-3 rounded-full border border-gray-200/50 dark:border-white/10 bg-white/70 dark:bg-[#0D1117]/80 backdrop-blur-md shadow-lg dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-[#0D1117]/60">
-
           {/* Left: Logo */}
           <div className="flex-shrink-0">
             <Link
@@ -77,7 +80,10 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-sans hover:text-electric-blue dark:hover:text-electric-blue transition-colors ml-2"
             >
-              Panha<span className="text-[var(--color-electric-blue)] font-mono">.dev</span>
+              Panha
+              <span className="text-[var(--color-electric-blue)] font-mono">
+                .dev
+              </span>
             </Link>
           </div>
 
@@ -89,7 +95,7 @@ const Navbar = () => {
                 href={link.href}
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener noreferrer" : undefined}
-                className="group flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-electric-blue dark:hover:text-electric-blue transition-colors"
+                className="group relative flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-electric-blue dark:hover:text-electric-blue transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-electric-blue after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {link.name}
                 {link.external && (
@@ -106,7 +112,7 @@ const Navbar = () => {
               href="#contact"
               className="hidden sm:inline-flex px-5 py-2 text-sm font-medium text-electric-blue dark:text-white bg-electric-blue/10 border border-electric-blue/20 rounded-full hover:bg-electric-blue/20 hover:shadow-[0_0_15px_rgba(88,166,255,0.3)] transition-all duration-300"
             >
-              Contact Me
+              Contact
             </Link>
 
             {/* Theme Toggle */}
@@ -148,31 +154,51 @@ const Navbar = () => {
               className="overflow-hidden w-full rounded-3xl border border-gray-200/50 dark:border-white/10 bg-white/70 dark:bg-[#0D1117]/80 backdrop-blur-md shadow-lg"
             >
               <div className="flex flex-col p-4 gap-2">
-                {navLinks.map((link) => (
-                  <Link
+                {navLinks.map((link, index) => (
+                  <motion.div
                     key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                    className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 hover:text-electric-blue dark:hover:text-electric-blue transition-all"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    {link.name}
-                    {link.external && (
-                      <ExternalLink className="w-4 h-4 opacity-70" />
-                    )}
-                  </Link>
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 hover:text-electric-blue dark:hover:text-electric-blue transition-all"
+                    >
+                      {link.name}
+                      {link.external && (
+                        <ExternalLink className="w-4 h-4 opacity-70" />
+                      )}
+                    </Link>
+                  </motion.div>
                 ))}
 
-                <div className="h-px bg-gray-200 dark:bg-white/10 my-1" />
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}
+                  className="h-px bg-gray-200 dark:bg-white/10 my-1"
+                />
 
-                <Link
-                  href="#contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center px-4 py-3 rounded-xl text-base font-medium text-electric-blue dark:text-white bg-electric-blue/10 border border-electric-blue/20 hover:bg-electric-blue/20 transition-all"
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: (navLinks.length + 1) * 0.1,
+                  }}
                 >
-                  Contact Me
-                </Link>
+                  <Link
+                    href="#contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center px-4 py-3 rounded-xl text-base font-medium text-electric-blue dark:text-white bg-electric-blue/10 border border-electric-blue/20 hover:bg-electric-blue/20 transition-all"
+                  >
+                    Contact Me
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           )}
