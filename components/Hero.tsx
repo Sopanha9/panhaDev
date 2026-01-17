@@ -2,92 +2,140 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpen } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, ExternalLink, MapPin, ShieldCheck, Database, Server, Code } from "lucide-react";
 import { motion } from "framer-motion";
+import { TypewriterEffect } from "./TypewriterEffect";
+import me from "./img/me.png"; // reusing the profile image
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 pt-32 overflow-hidden">
-      {/* Background Gradients */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-electric-blue/10 rounded-full blur-[100px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] -z-10" />
+    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 pt-32 overflow-hidden bg-[var(--background)]">
+      {/* Noise Overlay */}
+      <div className="noise-overlay" />
 
-      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-10 gap-6">
-        {/* Box A: Main Intro (65% width approx -> using col-span-6 or 7 out of 10 matches close to 65%) */}
+      {/* Background Gradients (Subtle Aura) */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--color-electric-blue)]/10 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[120px] -z-10" />
+
+      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20 z-10">
+
+        {/* Left Column (60%) */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="lg:col-span-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12 shadow-xl flex flex-col justify-center relative overflow-hidden group"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="lg:w-[60%] flex flex-col items-start text-left space-y-8"
         >
-          {/* Decorative hover Glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          
-          <div className="relative z-10 w-full">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-              <span className="block font-khmer mb-2 text-3xl md:text-4xl text-electric-blue">
-                សួស្ដី, ខ្ញុំគឺ បញ្ញា
+          {/* Location Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-xs font-medium text-gray-400 dark:text-gray-300">
+            <MapPin className="w-3.5 h-3.5 text-red-400" />
+            <span>Based in Phnom Penh, Cambodia</span>
+          </div>
+
+          {/* Main Typography */}
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-[var(--foreground)] leading-[1.1]">
+              <div className="min-h-[40px] md:min-h-[48px] mb-2 flex items-center">
+                <TypewriterEffect
+                  words={[
+                    { text: "Hi there, I'm Panha 👋", className: "font-sans" },
+                    { text: "Backend Developer.", className: "font-mono" },
+                    { text: "System Architect.", className: "font-mono" },
+                    { text: "Secure Infrastructure.", className: "font-mono" },
+                    { text: "សួស្ដី, ខ្ញុំឈ្មោះ បញ្ញា", className: "font-khmer" }
+                  ]}
+                  className="block text-2xl md:text-3xl font-medium text-[var(--color-electric-blue)]"
+                  cursorClassName="bg-[var(--color-electric-blue)] h-8 md:h-10"
+                />
+              </div>
+              Building Secure <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-electric-blue)] to-emerald-400">
+                Backend Systems.
               </span>
-              Hi, I&apos;m Panha
             </h1>
-            
-            <h2 className="text-xl md:text-2xl font-medium text-gray-300 mb-6 flex items-center gap-2">
-              <span className="w-8 h-[2px] bg-electric-blue rounded-full"></span>
-              Backend Developer &amp; Cybersecurity Student
-            </h2>
-            
-            <p className="text-gray-400 text-lg mb-8 max-w-2xl leading-relaxed">
-              I build robust, secure, and scalable backend systems. Passionate about cloud architecture, digital security, and creating seamless APIs that power modern web applications.
+            <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
+              A Year 2 University student with a deep passion for System Architecture and Backend Development. I thrive on building scalable solutions and constantly adapting to new technologies.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="#projects"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-electric-blue text-[#0D1117] font-bold rounded-lg hover:bg-white hover:shadow-[0_0_20px_rgba(88,166,255,0.4)] transition-all duration-300 transform hover:-translate-y-1"
-              >
-                View Projects
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              
-              <Link
-                href="https://blog.panha.dev"
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-transparent border border-gray-600 text-white font-medium rounded-lg hover:border-electric-blue hover:text-electric-blue hover:bg-electric-blue/5 transition-all duration-300"
-              >
-                Read My Blog
-                <BookOpen className="w-5 h-5" />
-              </Link>
+          </div>
+
+          {/* Tech Stack Strip */}
+          <div className="w-full py-4 border-y border-white/5 flex flex-wrap gap-8 items-center text-gray-500">
+            <span className="text-xs uppercase tracking-widest font-semibold opacity-50">Tech Stack</span>
+
+            {/* Icons (Lucide proxies for simplicity as no brand icons available) */}
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2 group cursor-help">
+                <Code className="w-5 h-5 group-hover:text-[var(--color-electric-blue)] transition-colors" />
+                <span className="text-sm font-mono group-hover:text-white transition-colors">Go</span>
+              </div>
+              <div className="flex items-center gap-2 group cursor-help">
+                <Server className="w-5 h-5 group-hover:text-green-500 transition-colors" />
+                <span className="text-sm font-mono group-hover:text-white transition-colors">Node.js</span>
+              </div>
+              <div className="flex items-center gap-2 group cursor-help">
+                <ShieldCheck className="w-5 h-5 group-hover:text-purple-500 transition-colors" />
+                <span className="text-sm font-mono group-hover:text-white transition-colors">Kotlin</span>
+              </div>
+              <div className="flex items-center gap-2 group cursor-help">
+                <Database className="w-5 h-5 group-hover:text-orange-500 transition-colors" />
+                <span className="text-sm font-mono group-hover:text-white transition-colors">Oracle/SQL</span>
+              </div>
             </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4 pt-2">
+            <Link
+              href="#projects"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-electric-blue)] text-black font-bold rounded-lg hover:shadow-[0_0_30px_rgba(0,255,148,0.3)] transition-all duration-300 transform hover:-translate-y-1"
+            >
+              View Projects
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="https://blog.panha.dev"
+              target="_blank"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border border-white/20 text-[var(--foreground)] font-medium rounded-lg hover:border-[var(--color-electric-blue)] hover:text-[var(--color-electric-blue)] transition-all duration-300"
+            >
+              Read My Blog
+              <ExternalLink className="w-4 h-4" />
+            </Link>
           </div>
         </motion.div>
 
-        {/* Box B: The Lanyard / 3D Placeholder (35% width approx -> using col-span-4) */}
+        {/* Right Column (40%) - Professional Portrait */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="lg:col-span-4 h-[400px] lg:h-auto min-h-[400px]"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="lg:w-[40%] flex justify-center lg:justify-end relative"
         >
-          <motion.div
-            animate={{ y: [-10, 10, -10] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="w-full h-full bg-gradient-to-br from-[#161b22] to-[#0D1117] backdrop-blur-sm border border-white/10 rounded-2xl shadow-xl flex items-center justify-center relative overflow-hidden"
-          >
-             {/* Gradient glow inside Box B */}
-             <div className="absolute inset-0 bg-gradient-to-tr from-electric-blue/10 via-transparent to-purple-500/10" />
-             
-             {/* Lanyard Placeholder */}
-             <div className="relative z-10 text-center p-6">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-r from-electric-blue to-purple-500 rounded-full blur-[20px] opacity-40 animate-pulse" />
-                <h3 className="text-xl font-bold text-white mb-2 font-mono">
-                  &lt;InteractiveCard /&gt;
-                </h3>
-                <p className="text-sm text-gray-500">
-                  3D Lanyard Component Loading...
-                </p>
-             </div>
-          </motion.div>
+          <div className="relative w-[300px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+            {/* Aura Glow */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-electric-blue)]/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-700 mixture-blend-overlay" />
+
+            {/* Image */}
+            <Image
+              src={me}
+              alt="Panha Professional Portrait"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
+              placeholder="blur"
+            />
+
+            {/* Overlay details */}
+            <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
+              <p className="text-[var(--color-electric-blue)] font-mono text-sm mb-1">Status: Active</p>
+              <p className="text-white text-xs opacity-60">Open for new opportunities</p>
+            </div>
+          </div>
+
+          {/* Decorative Elements */}
+          <div className="absolute -top-10 -right-10 w-32 h-32 border border-[var(--color-electric-blue)]/20 rounded-full opacity-50 animate-pulse" />
+          <div className="absolute -bottom-5 -left-5 w-24 h-24 border border-purple-500/20 rounded-full opacity-50" />
         </motion.div>
+
       </div>
     </section>
   );

@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Kantumruy_Pro } from "next/font/google"; // Kantumruy Pro is available in Google Fonts
+import { Inter, Noto_Sans_Khmer } from "next/font/google"; // Using Noto Sans Khmer as a reliable fallback
 import "./globals.css";
+import { Providers } from "./providers";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const kantumruy = Kantumruy_Pro({
-  variable: "--font-kantumruy",
-  subsets: ["khmer", "latin"], // Important for Khmer support
+const notoKhmer = Noto_Sans_Khmer({
+  variable: "--font-khmer-font", // Renaming to avoid confusion
+  subsets: ["khmer"],
   weight: ["400", "500", "600", "700"],
 });
 
@@ -24,12 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${kantumruy.variable} antialiased bg-[#0D1117] text-white`}
+        className={`${inter.variable} ${notoKhmer.variable} antialiased bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
 }
+
