@@ -15,6 +15,8 @@ import {
   MapPin,
   Sparkles,
   Lightbulb,
+  Award,
+  ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -51,7 +53,7 @@ const About = () => {
       repeat: Infinity,
       ease: "easeInOut",
     },
-  };
+  } as const;
 
   return (
     <section
@@ -272,7 +274,88 @@ const About = () => {
             </span>
           </motion.div>
 
-          {/* 7. Hobbies / Personal */}
+          {/* 7. Certifications & Learning */}
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ y: -5, scale: 1.03, transition: { duration: 0.3 } }}
+            className="md:col-span-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 hover:border-electric-blue/50 transition-colors duration-300"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="bg-electric-blue/10 dark:bg-electric-blue/10 w-10 h-10 rounded-xl flex items-center justify-center text-electric-blue dark:text-electric-blue">
+                <Award size={20} />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                Certifications & Learning
+              </h3>
+            </div>
+
+            <div className="space-y-3">
+              {/* Udemy Certification */}
+              <a
+                href="https://www.udemy.com/certificate/YOUR_CERTIFICATE_ID/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-purple-500/10 dark:bg-purple-500/10 flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-purple-500 dark:text-purple-400"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 0L15.708 8.568L24 9.906L17.646 15.894L19.416 24L12 19.752L4.584 24L6.354 15.894L0 9.906L8.292 8.568L12 0Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">
+                      Full-Stack Web Development
+                    </p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      Udemy
+                    </p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-purple-500 dark:group-hover:text-purple-400 transition-colors" />
+              </a>
+
+              {/* Web development Certification */}
+              <a
+                href="https://drive.google.com/file/d/1c7V2fGBC1Gg4nTtsXm-kMYkYzpHFahHt/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-blue-500/10 dark:bg-blue-500/10 flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-blue-500 dark:text-blue-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">
+                      Web Development
+                    </p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      Certification
+                    </p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors" />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* 8. Hobbies / Personal */}
           <motion.div
             variants={itemVariants}
             whileHover={{

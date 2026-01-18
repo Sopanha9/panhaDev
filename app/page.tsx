@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import About from "@/components/About";
 import ScrollProgress from "@/components/ScrollProgress";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <FeaturedProjects />
       {/* Additional sections can go here */}
     </main>
   );
