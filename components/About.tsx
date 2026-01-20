@@ -17,8 +17,10 @@ import {
   Lightbulb,
   Award,
   ExternalLink,
+  Linkedin,
 } from "lucide-react";
 import Image from "next/image";
+import Timeline from "./Timeline";
 
 const About = () => {
   // Animation variants
@@ -51,30 +53,35 @@ const About = () => {
     transition: {
       duration: 3,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
     },
-  } as const;
+  };
 
   return (
     <section
       id="about"
       className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-midnight text-gray-900 dark:text-white overflow-hidden transition-colors duration-300"
     >
-      {/* Background Elements with Parallax */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 1.2 }}
-        className="absolute top-0 right-0 w-[500px] h-[500px] bg-electric-blue/5 dark:bg-electric-blue/5 rounded-full blur-[120px] -z-10"
-      />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 1.2, delay: 0.2 }}
-        className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neo-mint/5 dark:bg-neo-mint/5 rounded-full blur-[120px] -z-10"
-      />
+      {/* Noise Overlay */}
+      <div className="noise-overlay" />
+
+      {/* Ambient Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1.2 }}
+          className="absolute top-0 right-0 w-[500px] h-[500px] bg-electric-blue/10 dark:bg-electric-blue/10 rounded-full blur-[120px]"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neo-mint/10 dark:bg-neo-mint/10 rounded-full blur-[120px]"
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -108,7 +115,7 @@ const About = () => {
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-            className="md:col-span-2 md:row-span-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 flex flex-col justify-between overflow-hidden relative group transition-colors duration-300"
+            className="md:col-span-2 md:row-span-2 bg-gray-50/50 dark:bg-white/5 border border-gray-200 dark:border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col justify-between overflow-hidden relative group transition-colors duration-300"
           >
             <div className="z-10">
               <div className="flex items-center gap-3 mb-6">
@@ -251,10 +258,12 @@ const About = () => {
             variants={itemVariants}
             whileHover={{ y: -5, scale: 1.05, transition: { duration: 0.3 } }}
             whileTap={{ scale: 0.95 }}
-            className="md:col-span-1 bg-[#0088cc]/10 dark:bg-[#0088cc]/10 border border-[#0088cc]/20 dark:border-[#0088cc]/20 hover:bg-[#0088cc]/20 dark:hover:bg-[#0088cc]/20 rounded-3xl p-6 flex flex-col justify-center items-center gap-3 transition-colors cursor-pointer group"
-            onClick={() => window.open("https://t.me/S_Pnha", "_blank")}
+            className="md:col-span-1 bg-[#0077b5]/10 dark:bg-[#0077b5]/10 border border-[#0077b5]/20 dark:border-[#0077b5]/20 hover:bg-[#0077b5]/20 dark:hover:bg-[#0077b5]/20 rounded-3xl p-6 flex flex-col justify-center items-center gap-3 transition-colors cursor-pointer group"
+            onClick={() =>
+              window.open("https://linkedin.com/in/sopanha", "_blank")
+            }
           >
-            <Send className="w-8 h-8 text-[#0088cc] dark:text-[#0088cc] group-hover:scale-110 transition-transform" />
+            <Linkedin className="w-8 h-8 text-[#0077b5] dark:text-[#0077b5] group-hover:scale-110 transition-transform" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Let's Connect
             </span>
@@ -380,6 +389,9 @@ const About = () => {
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Life Long Learning Timeline */}
+        <Timeline />
       </div>
     </section>
   );
