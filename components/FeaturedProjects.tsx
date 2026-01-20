@@ -121,7 +121,8 @@ A production-ready CMS built with Django. It features a permission-based system 
     id: "camtour",
     title: "CamTour",
     tagline: "Tourism Platform for Cambodia",
-    description: "Multilingual booking platform connecting tourists with local experiences.",
+    description:
+      "Multilingual booking platform connecting tourists with local experiences.",
     longDescription: `
 ### Localization & UX
 Designed with a focus on accessibility for both local Khmer speakers and international tourists. The platform facilitates direct connections between guides and travelers.
@@ -164,11 +165,11 @@ const FeaturedProjects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#040D06] text-[#E0EADD] overflow-hidden">
+    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-[#040D06] text-gray-900 dark:text-[#E0EADD] overflow-hidden">
       {/* --- Ambient Background --- */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00FF94]/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00FF94]/5 dark:bg-[#00FF94]/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-100/50 dark:bg-emerald-900/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -179,11 +180,12 @@ const FeaturedProjects = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold font-inter tracking-tight mb-4 text-[#E0EADD]">
+          <h2 className="text-4xl md:text-5xl font-bold font-inter tracking-tight mb-4 text-gray-900 dark:text-[#E0EADD]">
             Featured <span className="text-[#00FF94]">Projects</span>
           </h2>
-          <p className="text-[#E0EADD]/60 text-lg max-w-2xl font-inter">
-            A selection of technical implementations ranging from enterprise solutions to algorithmic experiments.
+          <p className="text-gray-600 dark:text-[#E0EADD]/60 text-lg max-w-2xl font-inter">
+            A selection of technical implementations ranging from enterprise
+            solutions to algorithmic experiments.
           </p>
         </motion.div>
 
@@ -205,13 +207,15 @@ const FeaturedProjects = () => {
             viewport={{ once: true }}
             transition={{ delay: PROJECTS.length * 0.1 }}
             onClick={() => window.open("https://github.com/Sopanha9", "_blank")}
-            className="group relative rounded-3xl border border-[#00FF94]/10 bg-[#0A1A0F]/50 backdrop-blur-sm p-8 flex flex-col items-center justify-center cursor-pointer hover:border-[#00FF94]/30 hover:bg-[#00FF94]/5 transition-all duration-500"
+            className="group relative rounded-3xl border border-[#00FF94]/10 bg-gray-50 dark:bg-[#0A1A0F]/50 backdrop-blur-sm p-8 flex flex-col items-center justify-center cursor-pointer hover:border-[#00FF94]/30 hover:bg-gray-100 dark:hover:bg-[#00FF94]/5 transition-all duration-500"
           >
             <div className="w-16 h-16 rounded-full bg-[#00FF94]/10 flex items-center justify-center text-[#00FF94] mb-6 group-hover:scale-110 transition-transform">
               <Github className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-bold text-[#E0EADD] mb-2">View More</h3>
-            <p className="text-center text-[#E0EADD]/50 text-sm">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-[#E0EADD] mb-2">
+              View More
+            </h3>
+            <p className="text-center text-gray-500 dark:text-[#E0EADD]/50 text-sm">
               Explore more experiments on GitHub
             </p>
           </motion.div>
@@ -250,8 +254,9 @@ const ProjectCard = ({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onClick={onClick}
-      className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-white/5 hover:border-[#00FF94]/30 transition-colors duration-500 ${project.featured ? "md:col-span-2" : "md:col-span-1"
-        }`}
+      className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-white/5 hover:border-[#00FF94]/30 transition-colors duration-500 ${
+        project.featured ? "md:col-span-2" : "md:col-span-1"
+      }`}
     >
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
@@ -260,8 +265,9 @@ const ProjectCard = ({
           loop
           muted
           playsInline
-          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${project.isWip ? "blur-sm opacity-50" : "opacity-100"
-            }`}
+          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+            project.isWip ? "blur-sm opacity-50" : "opacity-100"
+          }`}
         >
           <source src={project.videoSrc} type="video/mp4" />
         </video>
@@ -315,18 +321,18 @@ const ProjectModal = ({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="absolute inset-0 bg-[#040D06]/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/50 dark:bg-[#040D06]/80 backdrop-blur-sm"
       />
 
       {/* Modal Content */}
       <motion.div
         layoutId={`card-${project.id}`}
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#0A1A0F] border border-[#00FF94]/20 rounded-[2rem] shadow-[0_0_50px_rgba(0,255,148,0.1)] flex flex-col custom-scrollbar"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white dark:bg-[#0A1A0F] border border-gray-200 dark:border-[#00FF94]/20 rounded-[2rem] shadow-xl dark:shadow-[0_0_50px_rgba(0,255,148,0.1)] flex flex-col custom-scrollbar"
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white hover:bg-black/60 transition-all"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-gray-200/40 dark:bg-black/40 backdrop-blur-md flex items-center justify-center text-gray-600 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-300 dark:hover:bg-black/60 transition-all"
         >
           <X className="w-5 h-5" />
         </button>
@@ -375,14 +381,14 @@ const ProjectModal = ({
           </div>
 
           {/* Description */}
-          <div className="prose prose-invert prose-emerald max-w-none">
-            <p className="text-xl text-[#E0EADD]/90 leading-relaxed font-light">
+          <div className="prose dark:prose-invert prose-emerald max-w-none">
+            <p className="text-xl text-gray-800 dark:text-[#E0EADD]/90 leading-relaxed font-light">
               {project.description}
             </p>
             <div className="my-8 h-px bg-gradient-to-r from-transparent via-[#00FF94]/20 to-transparent" />
 
             {/* Markdown-style Render */}
-            <div className="text-[#E0EADD]/70 space-y-6 whitespace-pre-line leading-relaxed">
+            <div className="text-gray-700 dark:text-[#E0EADD]/70 space-y-6 whitespace-pre-line leading-relaxed">
               {project.longDescription}
             </div>
           </div>
@@ -401,7 +407,7 @@ const ProjectModal = ({
             {project.links.github && (
               <button
                 onClick={() => window.open(project.links.github, "_blank")}
-                className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-xl font-medium hover:bg-white/10 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white rounded-xl font-medium hover:bg-gray-300 dark:hover:bg-white/10 transition-colors"
               >
                 <Github className="w-5 h-5" />
                 <span>Source Code</span>
@@ -410,7 +416,7 @@ const ProjectModal = ({
             {project.links.email && (
               <button
                 onClick={() => window.open(project.links.email, "_blank")}
-                className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-xl font-medium hover:bg-white/10 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white rounded-xl font-medium hover:bg-gray-300 dark:hover:bg-white/10 transition-colors"
               >
                 <Mail className="w-5 h-5" />
                 <span>Email Booking</span>
@@ -419,7 +425,7 @@ const ProjectModal = ({
             {project.links.telegram && (
               <button
                 onClick={() => window.open(project.links.telegram, "_blank")}
-                className="flex items-center gap-2 px-6 py-3 bg-[#0088cc]/10 border border-[#0088cc]/30 text-[#0088cc] rounded-xl font-medium hover:bg-[#0088cc]/20 transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-blue-100 dark:bg-[#0088cc]/10 border border-blue-300 dark:border-[#0088cc]/30 text-blue-600 dark:text-[#0088cc] rounded-xl font-medium hover:bg-blue-200 dark:hover:bg-[#0088cc]/20 transition-colors"
               >
                 <Send className="w-5 h-5" />
                 <span>Telegram</span>
