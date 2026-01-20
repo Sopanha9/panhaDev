@@ -60,7 +60,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-midnight text-gray-900 dark:text-white overflow-hidden transition-colors duration-300"
+      className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-white dark:bg-midnight text-gray-900 dark:text-white overflow-hidden transition-colors duration-300"
     >
       {/* Noise Overlay */}
       <div className="noise-overlay" />
@@ -91,13 +91,13 @@ const About = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold font-sans tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans tracking-tight mb-4">
             About{" "}
             <span className="text-electric-blue dark:text-electric-blue">
               Me
             </span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl">
+          <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg max-w-2xl">
             More than just code—I build digital products that solve real
             problems. Here's a glimpse into my world.
           </p>
@@ -109,14 +109,14 @@ const About = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
-        >
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+        
           {/* 1. Main Profile Card (2x2 on desktop) */}
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-            className="md:col-span-2 md:row-span-2 bg-gray-50/50 dark:bg-white/5 border border-gray-200 dark:border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col justify-between overflow-hidden relative group transition-colors duration-300"
-          >
+            className="md:col-span-2 md:row-span-2 bg-gray-50/50 dark:bg-white/5 border border-gray-200 dark:border-white/10 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden relative group transition-colors duration-300">
+          
             <div className="z-10">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-electric-blue to-purple-500 border-2 border-gray-300 dark:border-white/20 overflow-hidden relative">
@@ -128,7 +128,7 @@ const About = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
                     Panha
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1">
@@ -140,7 +140,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
                 I'm a passionate developer with a knack for creating beautiful,
                 performant web applications. I treat every line of code as an
                 art form, ensuring the final product is not just functional but
@@ -176,8 +176,8 @@ const About = () => {
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -5, scale: 1.03, transition: { duration: 0.3 } }}
-            className="md:col-span-1 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 relative overflow-hidden group hover:border-electric-blue/50 transition-colors"
-          >
+            className="md:col-span-1 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 relative overflow-hidden group hover:border-electric-blue/50 transition-colors">
+          
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity text-gray-900 dark:text-white">
               <GraduationCap size={80} />
             </div>
@@ -206,8 +206,8 @@ const About = () => {
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -5, scale: 1.03, transition: { duration: 0.3 } }}
-            className="md:col-span-1 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 transition-colors duration-300"
-          >
+            className="md:col-span-1 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 transition-colors duration-300">
+          
             <div className="bg-neo-mint/10 dark:bg-neo-mint/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4 text-neo-mint dark:text-neo-mint">
               <Code2 size={20} />
             </div>
@@ -239,8 +239,8 @@ const About = () => {
             variants={itemVariants}
             whileHover={{ y: -5, scale: 1.03, transition: { duration: 0.3 } }}
             animate={floatAnimation}
-            className="md:col-span-1 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 flex flex-col justify-center items-center text-center gap-2 group cursor-pointer hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
-          >
+            className="md:col-span-1 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-center items-center text-center gap-2 group cursor-pointer hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
+          
             <div className="w-12 h-12 rounded-full bg-green-500/20 dark:bg-green-500/20 flex items-center justify-center text-green-400 dark:text-green-400 mb-2 relative">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 dark:bg-green-400 opacity-75"></span>
@@ -258,7 +258,7 @@ const About = () => {
             variants={itemVariants}
             whileHover={{ y: -5, scale: 1.05, transition: { duration: 0.3 } }}
             whileTap={{ scale: 0.95 }}
-            className="md:col-span-1 bg-[#0077b5]/10 dark:bg-[#0077b5]/10 border border-[#0077b5]/20 dark:border-[#0077b5]/20 hover:bg-[#0077b5]/20 dark:hover:bg-[#0077b5]/20 rounded-3xl p-6 flex flex-col justify-center items-center gap-3 transition-colors cursor-pointer group"
+            className="md:col-span-1 bg-[#0077b5]/10 dark:bg-[#0077b5]/10 border border-[#0077b5]/20 dark:border-[#0077b5]/20 hover:bg-[#0077b5]/20 dark:hover:bg-[#0077b5]/20 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-center items-center gap-3 transition-colors cursor-pointer group"
             onClick={() =>
               window.open("https://linkedin.com/in/sopanha", "_blank")
             }
@@ -274,7 +274,7 @@ const About = () => {
             variants={itemVariants}
             whileHover={{ y: -5, scale: 1.05, transition: { duration: 0.3 } }}
             whileTap={{ scale: 0.95 }}
-            className="md:col-span-1 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10 rounded-3xl p-6 flex flex-col justify-center items-center gap-3 transition-colors cursor-pointer group"
+            className="md:col-span-1 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-center items-center gap-3 transition-colors cursor-pointer group"
             onClick={() => window.open("https://github.com/Sopanha9", "_blank")}
           >
             <Github className="w-8 h-8 text-gray-900 dark:text-white group-hover:scale-110 transition-transform" />
@@ -287,7 +287,7 @@ const About = () => {
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -5, scale: 1.03, transition: { duration: 0.3 } }}
-            className="md:col-span-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 hover:border-electric-blue/50 transition-colors duration-300"
+            className="md:col-span-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 hover:border-electric-blue/50 transition-colors duration-300"
           >
             <div className="flex items-center gap-3 mb-5">
               <div className="bg-electric-blue/10 dark:bg-electric-blue/10 w-10 h-10 rounded-xl flex items-center justify-center text-electric-blue dark:text-electric-blue">

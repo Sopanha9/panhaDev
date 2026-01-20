@@ -6,17 +6,17 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #040D06;
+  --foreground: #040d06;
 
   --color-electric-blue: #00bfa5;
   /* Teal-ish for light mode potentially */
 }
 
 .dark {
-  --background: #040D06;
-  --foreground: #E0EADD;
+  --background: #040d06;
+  --foreground: #e0eadd;
 
-  --color-electric-blue: #00FF94;
+  --color-electric-blue: #00ff94;
   /* Neo-Mint */
 }
 
@@ -28,9 +28,9 @@
   --color-foreground: var(--foreground);
 
   --color-electric-blue: var(--color-electric-blue);
-  --color-midnight: #040D06;
-  --color-neo-mint: #00FF94;
-  --color-deep-dark: #0D1117;
+  --color-midnight: #040d06;
+  --color-neo-mint: #00ff94;
+  --color-deep-dark: #0d1117;
 }
 
 /* Noise overlay */
@@ -49,6 +49,34 @@
 /* Force Khmer font manually if Tailwind utility fails */
 .font-khmer {
   font-family: var(--font-khmer-font), sans-serif !important;
+}
+
+/* Global responsive improvements */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Prevent text from overflowing on mobile */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Body styles handled in layout.tsx via utility classes */

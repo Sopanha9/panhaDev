@@ -69,16 +69,16 @@ const Navbar = () => {
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] md:w-[80%] z-50 flex flex-col gap-2"
+        className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] md:w-[80%] z-50 flex flex-col gap-2"
       >
         {/* Main Navbar Bar */}
-        <div className="flex items-center justify-between px-6 py-3 rounded-full border border-gray-200/50 dark:border-white/10 bg-white/70 dark:bg-[#0D1117]/80 backdrop-blur-md shadow-lg dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-[#0D1117]/60">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border border-gray-200/50 dark:border-white/10 bg-white/70 dark:bg-[#0D1117]/80 backdrop-blur-md shadow-lg dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-[#0D1117]/60">
           {/* Left: Logo */}
           <div className="flex-shrink-0">
             <Link
               href="/"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-sans hover:text-electric-blue dark:hover:text-electric-blue transition-colors ml-2"
+              className="text-lg sm:text-xl font-bold tracking-tight text-gray-900 dark:text-white font-sans hover:text-electric-blue dark:hover:text-electric-blue transition-colors ml-0 sm:ml-2"
             >
               Panha
               <span className="text-[var(--color-electric-blue)] font-mono">

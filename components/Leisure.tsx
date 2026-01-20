@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Leisure = () => {
     return (
-        <section className="py-20 px-6 md:px-12 lg:px-24 bg-white/5 dark:bg-[#040D06] relative overflow-hidden">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-24 bg-white/5 dark:bg-[#040D06] relative overflow-hidden">
             {/* Background Ambience */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 <div className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-[#00FF94]/5 rounded-full blur-3xl opacity-20" />
@@ -21,23 +21,23 @@ const Leisure = () => {
                     transition={{ duration: 0.6 }}
                     className="mb-12"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans text-[#040D06] dark:text-[#E0EADD]">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 font-sans text-[#040D06] dark:text-[#E0EADD]">
                         Beyond the <span className="text-[#00bfa5] dark:text-[#00FF94]">Code</span>
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl font-sans">
+                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl font-sans text-sm sm:text-base">
                         Exploring the intersection of creativity, philosophy, and technology.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(250px,auto)]">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[minmax(250px,auto)]">
                     {/* Card 1: Writing & Philosophy */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="md:col-span-2 bg-white/50 dark:bg-[#0D1117]/50 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-3xl p-8 hover:border-[#00bfa5]/30 dark:hover:border-[#00FF94]/30 transition-all group overflow-hidden relative"
-                    >
+                        className="md:col-span-2 bg-white/50 dark:bg-[#0D1117]/50 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-[#00bfa5]/30 dark:hover:border-[#00FF94]/30 transition-all group overflow-hidden relative">
+                    
                         <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                             <PenTool className="w-24 h-24 text-[#00bfa5] dark:text-[#00FF94]" />
                         </div>
@@ -47,8 +47,8 @@ const Leisure = () => {
                                 <div className="w-12 h-12 rounded-xl bg-[#00bfa5]/10 dark:bg-[#00FF94]/10 flex items-center justify-center mb-6 text-[#00bfa5] dark:text-[#00FF94]">
                                     <PenTool className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-2xl font-bold mb-3 text-[#040D06] dark:text-[#E0EADD]">Philosophical Writing</h3>
-                                <p className="text-gray-600 dark:text-gray-400 mb-6 font-sans leading-relaxed">
+                                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-[#040D06] dark:text-[#E0EADD]">Philosophical Writing</h3>
+                                <p className="text-gray-600 dark:text-gray-400 mb-6 font-sans leading-relaxed text-sm sm:text-base">
                                     I enjoy exploring the intersection of technology and philosophy through my blog, <span className="font-semibold text-[#00bfa5] dark:text-[#00FF94]">PanhaInsight</span>.
                                     Reflecting on how digital foundations shape our human experience.
                                 </p>

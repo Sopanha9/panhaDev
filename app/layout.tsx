@@ -17,6 +17,7 @@ const notoKhmer = Noto_Sans_Khmer({
 export const metadata: Metadata = {
   title: "Panha.dev - Portfolio",
   description: "Portfolio of Panha, Backend Developer & Cybersecurity Student",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
 };
 
 export default function RootLayout({
@@ -34,4 +35,3 @@ export default function RootLayout({
     </html>
   );
 }
-

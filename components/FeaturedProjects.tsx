@@ -65,11 +65,11 @@ Built as a robust solution for managing complex utility billing cycles. The syst
     featured: true,
   },
   {
-    id: "hashing",
-    title: "Student Management System",
-    tagline: "High-Performance Data Structures",
+    id: "php",
+    title: "Library Management System",
+    tagline: "Library System with php and mysql",
     description:
-      "Advanced system featuring custom hash table algorithms for O(1) retrieval.",
+      "A full-featured library management system developed using PHP and MySQL.",
     longDescription: `
 ### Algorithmic Core
 This project focuses on the implementation of a custom **Hash Table** from scratch to manage large datasets of student records with constant-time complexity for lookups.
@@ -83,12 +83,12 @@ This project focuses on the implementation of a custom **Hash Table** from scrat
 - Grade Management & averaging
 - Course Registration conflicts detection
     `,
-    techStack: ["C#", "Algorithms", "Data Structures"],
+    techStack: ["PHP", "MySQL", "HTML", "Tailwind CSS"],
     links: {
-      github: "https://github.com/Sopanha9/hashing",
-      demo: "https://github.com/Sopanha9/hashing",
+      github: "https://github.com/Sopanha9/library-php-system",
+      demo: "https://github.com/Sopanha9/library-php-system",
     },
-    videoSrc: "/gif/gif.mp4",
+    videoSrc: "/gif/lbSpeed.mp4",
     featured: true,
   },
   {
@@ -165,7 +165,7 @@ const FeaturedProjects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section className="relative py-24 px-6 md:px-12 lg:px-24 bg-white dark:bg-[#040D06] text-gray-900 dark:text-[#E0EADD] overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-white dark:bg-[#040D06] text-gray-900 dark:text-[#E0EADD] overflow-hidden">
       {/* --- Ambient Background --- */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00FF94]/5 dark:bg-[#00FF94]/5 rounded-full blur-[100px]" />
@@ -180,17 +180,17 @@ const FeaturedProjects = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold font-inter tracking-tight mb-4 text-gray-900 dark:text-[#E0EADD]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-inter tracking-tight mb-4 text-gray-900 dark:text-[#E0EADD]">
             Featured <span className="text-[#00FF94]">Projects</span>
           </h2>
-          <p className="text-gray-600 dark:text-[#E0EADD]/60 text-lg max-w-2xl font-inter">
+          <p className="text-gray-600 dark:text-[#E0EADD]/60 text-base sm:text-lg max-w-2xl font-inter">
             A selection of technical implementations ranging from enterprise
             solutions to algorithmic experiments.
           </p>
         </motion.div>
 
         {/* --- Grid --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[350px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 auto-rows-[320px] sm:auto-rows-[350px]">
           {PROJECTS.map((project, index) => (
             <ProjectCard
               key={project.id}
@@ -276,7 +276,7 @@ const ProjectCard = ({
       </div>
 
       {/* Content Positioned Bottom-Left */}
-      <div className="absolute bottom-0 left-0 w-full p-8 z-10 flex flex-col items-start gap-2">
+      <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 md:p-8 z-10 flex flex-col items-start gap-2">
         {project.isWip && (
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-semibold backdrop-blur-md mb-2">
             <Loader2 className="w-3 h-3 animate-spin" /> In Development
@@ -285,7 +285,7 @@ const ProjectCard = ({
 
         <motion.h3
           layoutId={`title-${project.id}`}
-          className="text-2xl md:text-3xl font-bold text-white font-inter"
+          className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-inter"
         >
           {project.title}
         </motion.h3>
@@ -314,7 +314,7 @@ const ProjectModal = ({
   onClose: () => void;
 }) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-8">
       {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -338,7 +338,7 @@ const ProjectModal = ({
         </button>
 
         {/* Top Video Header */}
-        <div className="relative w-full h-[300px] md:h-[400px] flex-shrink-0 bg-black">
+        <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] flex-shrink-0 bg-black">
           <video
             autoPlay
             loop
@@ -350,16 +350,16 @@ const ProjectModal = ({
           </video>
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A0F] to-transparent" />
 
-          <div className="absolute bottom-8 left-8 right-8">
+          <div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 right-4 sm:right-8">
             <motion.h2
               layoutId={`title-${project.id}`}
-              className="text-3xl md:text-5xl font-bold text-white mb-2 font-inter"
+              className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 font-inter"
             >
               {project.title}
             </motion.h2>
             <motion.p
               layoutId={`tagline-${project.id}`}
-              className="text-[#00FF94] text-lg font-medium"
+              className="text-[#00FF94] text-base sm:text-lg font-medium"
             >
               {project.tagline}
             </motion.p>
@@ -367,7 +367,7 @@ const ProjectModal = ({
         </div>
 
         {/* Content Body */}
-        <div className="p-8 md:p-12 space-y-8">
+        <div className="p-6 sm:p-8 md:p-12 space-y-6 sm:space-y-8">
           {/* Tech Stack */}
           <div className="flex flex-wrap gap-2">
             {project.techStack.map((tech) => (
@@ -382,7 +382,7 @@ const ProjectModal = ({
 
           {/* Description */}
           <div className="prose dark:prose-invert prose-emerald max-w-none">
-            <p className="text-xl text-gray-800 dark:text-[#E0EADD]/90 leading-relaxed font-light">
+            <p className="text-base sm:text-lg md:text-xl text-gray-800 dark:text-[#E0EADD]/90 leading-relaxed font-light">
               {project.description}
             </p>
             <div className="my-8 h-px bg-gradient-to-r from-transparent via-[#00FF94]/20 to-transparent" />
@@ -394,11 +394,11 @@ const ProjectModal = ({
           </div>
 
           {/* Action Footer */}
-          <div className="flex flex-wrap items-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-4">
             {project.links.demo && (
               <button
                 onClick={() => window.open(project.links.demo, "_blank")}
-                className="flex items-center gap-2 px-6 py-3 bg-[#00FF94] text-[#040D06] rounded-xl font-bold hover:bg-[#00cc76] transition-colors shadow-[0_0_20px_rgba(0,255,148,0.3)] hover:shadow-[0_0_30px_rgba(0,255,148,0.5)]"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-[#00FF94] text-[#040D06] rounded-xl font-bold hover:bg-[#00cc76] transition-colors shadow-[0_0_20px_rgba(0,255,148,0.3)] hover:shadow-[0_0_30px_rgba(0,255,148,0.5)] text-sm sm:text-base"
               >
                 <span>Live Demo</span>
                 <ExternalLink className="w-4 h-4" />
@@ -407,7 +407,7 @@ const ProjectModal = ({
             {project.links.github && (
               <button
                 onClick={() => window.open(project.links.github, "_blank")}
-                className="flex items-center gap-2 px-6 py-3 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white rounded-xl font-medium hover:bg-gray-300 dark:hover:bg-white/10 transition-colors"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white rounded-xl font-medium hover:bg-gray-300 dark:hover:bg-white/10 transition-colors text-sm sm:text-base"
               >
                 <Github className="w-5 h-5" />
                 <span>Source Code</span>
@@ -416,7 +416,7 @@ const ProjectModal = ({
             {project.links.email && (
               <button
                 onClick={() => window.open(project.links.email, "_blank")}
-                className="flex items-center gap-2 px-6 py-3 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white rounded-xl font-medium hover:bg-gray-300 dark:hover:bg-white/10 transition-colors"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white rounded-xl font-medium hover:bg-gray-300 dark:hover:bg-white/10 transition-colors text-sm sm:text-base"
               >
                 <Mail className="w-5 h-5" />
                 <span>Email Booking</span>
@@ -425,7 +425,7 @@ const ProjectModal = ({
             {project.links.telegram && (
               <button
                 onClick={() => window.open(project.links.telegram, "_blank")}
-                className="flex items-center gap-2 px-6 py-3 bg-blue-100 dark:bg-[#0088cc]/10 border border-blue-300 dark:border-[#0088cc]/30 text-blue-600 dark:text-[#0088cc] rounded-xl font-medium hover:bg-blue-200 dark:hover:bg-[#0088cc]/20 transition-colors"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-100 dark:bg-[#0088cc]/10 border border-blue-300 dark:border-[#0088cc]/30 text-blue-600 dark:text-[#0088cc] rounded-xl font-medium hover:bg-blue-200 dark:hover:bg-[#0088cc]/20 transition-colors text-sm sm:text-base"
               >
                 <Send className="w-5 h-5" />
                 <span>Telegram</span>

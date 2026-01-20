@@ -18,7 +18,7 @@ import me from "./img/me.png"; // reusing the profile image
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 pt-32 overflow-hidden bg-[var(--background)]">
+    <section className="relative min-h-screen flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 overflow-hidden bg-[var(--background)]">
       {/* Noise Overlay */}
       <div className="noise-overlay" />
 
@@ -36,7 +36,7 @@ const Hero = () => {
         className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[120px] -z-10"
       />
 
-      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20 z-10">
+      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20 z-10">
         {/* Left Column (60%) */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -52,8 +52,8 @@ const Hero = () => {
 
           {/* Main Typography */}
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-[var(--foreground)] leading-[1.1]">
-              <div className="min-h-[40px] md:min-h-[48px] mb-2 flex items-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-[var(--foreground)] leading-[1.1]">
+              <div className="min-h-[32px] sm:min-h-[40px] md:min-h-[48px] mb-2 flex items-center">
                 <TypewriterEffect
                   words={[
                     { text: "Hi there, I'm Panha 👋", className: "font-sans" },
@@ -65,8 +65,8 @@ const Hero = () => {
                       className: "font-khmer",
                     },
                   ]}
-                  className="block text-2xl md:text-3xl font-medium text-[var(--color-electric-blue)]"
-                  cursorClassName="bg-[var(--color-electric-blue)] h-8 md:h-10"
+                  className="block text-xl sm:text-2xl md:text-3xl font-medium text-[var(--color-electric-blue)]"
+                  cursorClassName="bg-[var(--color-electric-blue)] h-6 sm:h-8 md:h-10"
                 />
               </div>
               Building Secure <br />
@@ -74,7 +74,7 @@ const Hero = () => {
                 Backend Systems.
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
               A Year 2 University student with a deep passion for System
               Architecture and Backend Development. I thrive on building
               scalable solutions and constantly adapting to new technologies.
@@ -86,14 +86,14 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="w-full py-4 border-y border-white/5 flex flex-wrap gap-8 items-center text-gray-500"
+            className="w-full py-4 border-y border-white/5 flex flex-wrap gap-4 sm:gap-6 md:gap-8 items-center text-gray-500"
           >
-            <span className="text-xs uppercase tracking-widest font-semibold opacity-50">
+            <span className="text-xs uppercase tracking-widest font-semibold opacity-50 w-full sm:w-auto">
               Tech Stack
             </span>
 
             {/* Icons (Lucide proxies for simplicity as no brand icons available) */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center flex-wrap gap-4 sm:gap-6">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -150,19 +150,19 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap gap-4 pt-2"
+            className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 w-full"
           >
             <Link
               href="#projects"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-electric-blue)] text-black font-bold rounded-lg hover:shadow-[0_0_30px_rgba(0,255,148,0.3)] transition-all duration-300 transform hover:-translate-y-1"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-[var(--color-electric-blue)] text-black font-bold rounded-lg hover:shadow-[0_0_30px_rgba(0,255,148,0.3)] transition-all duration-300 transform hover:-translate-y-1 text-sm sm:text-base"
             >
               View Projects
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
             <Link
               href="https://blog.panha.dev"
               target="_blank"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border border-white/20 text-[var(--foreground)] font-medium rounded-lg hover:border-[var(--color-electric-blue)] hover:text-[var(--color-electric-blue)] transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-transparent border border-white/20 text-[var(--foreground)] font-medium rounded-lg hover:border-[var(--color-electric-blue)] hover:text-[var(--color-electric-blue)] transition-all duration-300 text-sm sm:text-base"
             >
               Read My Blog
               <ExternalLink className="w-4 h-4" />
@@ -175,9 +175,9 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:w-[40%] flex justify-center lg:justify-end relative"
+          className="lg:w-[40%] flex justify-center lg:justify-end relative w-full"
         >
-          <div className="relative w-[300px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
+          <div className="relative w-[250px] sm:w-[300px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
             {/* Aura Glow */}
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-electric-blue)]/20 to-transparent opacity-50 group-hover:opacity-80 transition-opacity duration-700 mixture-blend-overlay" />
 
