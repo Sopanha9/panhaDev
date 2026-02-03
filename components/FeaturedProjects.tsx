@@ -115,7 +115,7 @@ A production-ready CMS built with Django. It features a permission-based system 
       github: "https://github.com/Sopanha9/blog_cms",
       demo: "https://github.com/Sopanha9/blog-django-v3",
     },
-    videoSrc: "/gif/gif.mp4",
+    videoSrc: "/gif/4null.mp4",
   },
   {
     id: "camtour",

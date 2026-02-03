@@ -260,7 +260,7 @@ const About = () => {
             whileTap={{ scale: 0.95 }}
             className="md:col-span-1 bg-[#0077b5]/10 dark:bg-[#0077b5]/10 border border-[#0077b5]/20 dark:border-[#0077b5]/20 hover:bg-[#0077b5]/20 dark:hover:bg-[#0077b5]/20 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-center items-center gap-3 transition-colors cursor-pointer group"
             onClick={() =>
-              window.open("https://linkedin.com/in/sopanha", "_blank")
+              window.open("https://www.linkedin.com/in/so-panha-086506276/", "_blank")
             }
           >
             <Linkedin className="w-8 h-8 text-[#0077b5] dark:text-[#0077b5] group-hover:scale-110 transition-transform" />
