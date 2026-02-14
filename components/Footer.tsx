@@ -12,7 +12,7 @@ const Footer = () => {
 
   const handleCopyEmail = async () => {
     try {
-      await navigator.clipboard.writeText("contact@panha.dev"); // Replace with actual email if known, using placeholder logic
+      await navigator.clipboard.writeText("loznha72@gmail.com"); // Updated to user's email
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -60,12 +60,12 @@ const Footer = () => {
                 label="GitHub"
               />
               <SocialLink
-                href="#"
+                href="https://www.linkedin.com/in/so-panha-086506276/"
                 icon={<Linkedin className="w-5 h-5" />}
                 label="LinkedIn"
               />
               <SocialLink
-                href="#"
+                href="https://t.me/S_Pnha"
                 icon={<Send className="w-5 h-5" />}
                 label="Telegram"
               />

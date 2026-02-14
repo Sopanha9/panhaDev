@@ -62,7 +62,6 @@ Built as a robust solution for managing complex utility billing cycles. The syst
       demo: "https://eneang-billing-frontend.vercel.app/",
     },
     videoSrc: "/gif/Utility_frontend.mp4",
-    featured: true,
   },
   {
     id: "php",
@@ -122,7 +121,7 @@ A production-ready CMS built with Django. It features a permission-based system 
     title: "CamTour",
     tagline: "Tourism Platform for Cambodia",
     description:
-      "Multilingual booking platform connecting tourists with local experiences.",
+      "A seamless booking platform connecting international travelers with authentic Cambodian experiences.",
     longDescription: `
 ### Localization & UX
 Designed with a focus on accessibility for both local Khmer speakers and international tourists. The platform facilitates direct connections between guides and travelers.
@@ -134,10 +133,12 @@ Designed with a focus on accessibility for both local Khmer speakers and interna
     techStack: ["Khmer Language", "Tourism", "Web Integration"],
     links: {
       demo: "https://camtour.netlify.app/",
-      email: "mailto:?subject=Booking Inquiry - Travel Cambodia",
+      email:
+        "mailto:loznha72@gmail.com?subject=Booking Inquiry - Travel Cambodia",
       telegram: "https://t.me/",
     },
-    videoSrc: "/gif/gif.mp4",
+    videoSrc: "/gif/travel.mp4",
+    featured: true,
   },
   {
     id: "holiday-api",
@@ -165,7 +166,10 @@ const FeaturedProjects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-white dark:bg-[#040D06] text-gray-900 dark:text-[#E0EADD] overflow-hidden">
+    <section
+      id="projects"
+      className="relative py-24 sm:py-32 md:py-36 px-4 sm:px-6 md:px-12 lg:px-24 bg-white dark:bg-[#040D06] text-gray-900 dark:text-[#E0EADD] overflow-hidden scroll-mt-20"
+    >
       {/* --- Ambient Background --- */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00FF94]/5 dark:bg-[#00FF94]/5 rounded-full blur-[100px]" />
@@ -265,14 +269,15 @@ const ProjectCard = ({
           loop
           muted
           playsInline
-          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+          disablePictureInPicture
+          className={`w-full h-full object-cover pointer-events-none transition-transform duration-700 group-hover:scale-105 ${
             project.isWip ? "blur-sm opacity-50" : "opacity-100"
           }`}
         >
           <source src={project.videoSrc} type="video/mp4" />
         </video>
         {/* Dark Overlay - Adjusted to be lighter so video shows through */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#040D06] via-[#040D06]/50 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#040D06] via-[#040D06]/40 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-40" />
       </div>
 
       {/* Content Positioned Bottom-Left */}

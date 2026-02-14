@@ -109,7 +109,9 @@ const Navbar = () => {
           <div className="flex items-center gap-4 mr-2">
             {/* Contact Me Button (Desktop) */}
             <Link
-              href="#contact"
+              href="https://t.me/S_Pnha"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-flex px-5 py-2 text-sm font-medium text-electric-blue dark:text-white bg-electric-blue/10 border border-electric-blue/20 rounded-full hover:bg-electric-blue/20 hover:shadow-[0_0_15px_rgba(88,166,255,0.3)] transition-all duration-300"
             >
               Contact
@@ -192,7 +194,9 @@ const Navbar = () => {
                   }}
                 >
                   <Link
-                    href="#contact"
+                    href="https://t.me/S_Pnha"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center justify-center px-4 py-3 rounded-xl text-base font-medium text-electric-blue dark:text-white bg-electric-blue/10 border border-electric-blue/20 hover:bg-electric-blue/20 transition-all"
                   >
